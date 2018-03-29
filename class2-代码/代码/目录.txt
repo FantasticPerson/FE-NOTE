@@ -1,0 +1,13 @@
+节点：
+01：01.html（箭头函数）
+02：Promise.js--02.html（Promise流程控制）
+03：promiseAsync.js（Promise异步输出）
+04：realization.js--03.html（Promise实现）
+05：async.js--04.html（async/awai异步解决方案）
+06：async2.js（try-catch应用）
+07：async3.js--05.html（上下文应用，forEach避免）
+
+
+
+
+

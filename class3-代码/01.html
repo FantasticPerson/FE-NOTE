@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+//async/await
+
+
+function* helloWorldGenerator() {
+  yield 'hello';
+  yield 'world';
+  return 'ending';//return表示执行完成了，后面没有代码执行了，则返回的done为true
+  yield "aa";//这个不会输出
+}
+/*
+上述方法定义了三个状态，可以用hw.next()得到里面定义的状态
+
+*/
+var hw = helloWorldGenerator();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

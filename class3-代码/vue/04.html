@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!--
+需要注意，Vue里面的标签和模板在Vue.js文件加载完之前，他们是没有渲染的，也就是说他们在未渲染之前是按照我们代码的格式原封不动的输出的
+
+-->
+    <div id="app">
+        <ol>
+            <li v-for="item in arr">{{item.text}}</li>
+        </ol>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        //通过new得到一个Vue的实例
+        new Vue({
+            //ID：#
+            el: '#app',//element:元素，这里表示我们需要渲染的元素位置
+            data: { //需要操作的数据，这个数据可以是数组、对象、变量等等类型
+                message: 'Hello Vue!',//Vue的一个数据对象
+                arr: [{
+                    text: '大前端'
+                },
+                {
+                    text: 'Java'
+                }, {
+                    text: 'Python'
+                }]
+            }
+        });
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

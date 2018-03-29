@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{color:red;}
+    .blue{background: blue;}
+    </style>
+</head>
+<body>
+    
+<div id="app">
+    <strong :class="{red:flag,blue:flag}">这里有一段文字</strong>
+    <button @click="change">加蓝</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+new Vue({
+    el:"#app",
+    data:{
+        flag:true
+    },
+    methods:{
+        change:function(){
+            this.flag = !this.flag;
+        }
+    }
+})
+
+</script>
+
+
+
+</body>
+</html>
