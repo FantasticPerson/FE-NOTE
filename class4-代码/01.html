@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="add">按钮</button>
+    <button @click="change">改变</button>
+   <ol id="list">
+        <li v-for="item in arr">{{item.text}}</li>
+   </ol>
+   <p>{{msg}}</p>
+   <p>{{arr}}</p>
+   <p>{{json}}</p>
+</div>    
+
+<script src="vue.js"></script>
+<script>
+let app = new Vue({
+    el:"#app",//element
+    /*
+        vue会对这个data里面所有初始化的对象进行监听，当发生变化
+        vue会自动渲染所有应用到的模板
+    */
+    data:{//需要渲染的数据
+        msg:"Hello",
+        arr:[{
+            text:"大前端"
+        },{
+            text:"Java"
+        },{
+            text:"安卓"
+        }],
+        json:{a:"appple",b:"banana"}
+
+    },
+    methods:{//定义的方法
+        add:function(){
+            //document.getElementById("list").innerHTML += "<li>1</li>"
+            this.arr.push({text:Math.random()});
+            this.change();
+        },
+        change:function(){
+            this.arr[1].text = "前端部门";
+        }
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>

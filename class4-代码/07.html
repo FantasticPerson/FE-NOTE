@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        border: 2px solid #f00;
+    }
+    button{
+        background: #f90;
+        border: 0px;
+        color:#fff;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div><input type="text" @keydown.left="showLeft()"/></div>
+        <div><input type="text" @keydown.right="showRight()"/></div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                showLeft: function () {
+                   console.log("你按了左箭头");
+                },
+                showRight: function () {
+                   console.log("你按了右箭头");
+                }
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        border: 2px solid #f00;
+    }
+    button{
+        background: #f90;
+        border: 0px;
+        color:#fff;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="box" @click="box()">
+            <button @click="show($event)">按钮</button>
+            <button @click.stop="showBtn">按钮2</button>
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+
+
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                show: function (ev) {
+                    alert("show");
+                    ev.cancelBubble = true;
+                },
+                box:function(){
+                    alert("box");
+                },
+                showBtn:function(){
+                    alert("showBtn");
+                }
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

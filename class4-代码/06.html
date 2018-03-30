@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        border: 2px solid #f00;
+    }
+    button{
+        background: #f90;
+        border: 0px;
+        color:#fff;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div><input type="text" @keydown="show()"/></div>
+        <div><input type="text" @keydown="showCode($event)"/></div>
+        <div><input type="text" @keydown.13="showEnter()"/></div>
+        <div><input type="text" @keydown.enter="showEnter()"/></div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+
+
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                show: function () {
+                   console.log("哈哈");
+                },
+                showCode:function(ev){
+                    if(ev.keyCode==13){
+                        console.log("您按回车了");
+                    }
+                    console.log(ev.keyCode);
+                    
+                },
+                showEnter:function(){
+                    alert("您按回车了");
+                }
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
