@@ -1,0 +1,37 @@
+Computed：https://cn.vuejs.org/v2/api/#computed
+watch：https://cn.vuejs.org/v2/api/#watch
+对比：http://blog.csdn.net/webxiaoma/article/details/72626439
+
+Vue钩子函数，也叫生命周期（事情开始到结束）
+
+
+由于Vue.js是属于个人项目维护的，所以在很多规范和代码方面会稍微欠缺，所以目前的语法和之前的变动比较多，所以当遇到生命周期或者语法问题，建议看下官方文档是否还存在或修改了原语法！
+
+vue-resource => axios
+
+过滤器 -> 变更
+生命周期函数 ->
+
+
+学习工具：
+http://www.browsersync.cn/#install
+
+
+
+
+
+
+接下来的学习任务：
+
+ES6为主
+基础一定要多敲，学好
+箭头函数、let/const、作用域、Promise、解构赋值、
+Vue：
+钩子函数、基础应用、指令、computed、watch、
+
+组件及组件通信、路由（分为很多点，）、Transition动画、vue-cli
+Element-ui：http://element.eleme.io/
+
+es6.ruanyifeng.com
+
+

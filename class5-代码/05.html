@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="app">
+{{msg}}
+<p>{{num}}</p>
+</div>    
+
+<script src="vue.js"></script>
+<script>
+/*var vm = new Vue({
+    el:"#app"
+    data:{
+        msg:"Hello World!"
+    }
+}).$mount("#app");//挂载*/
+
+var vm = new Vue({
+    data:{
+        msg:"Hello World!",
+        num:10
+    }
+});//挂载
+
+vm.$mount("#app");//手动挂载element对象
+//vm.msg = "newValue";
+//vm.$el.style.background = "red";
+//会帮助我们检测到msg对象的变化
+vm.$watch('msg',function(){
+    //在更改之后会先触发检测对象
+    alert("发生变化啦");//在他弹出之前不会发生变更，因为alert具有页面阻断作用
+    this.num += 10;
+});
+
+document.onclick = function(){
+    alert("click");
+    vm.msg = "点击之后的内容";
+}
+
+
+</script>
+
+</body>
+</html>

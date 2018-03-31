@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="app">
+   <p>{{firstName}}</p>
+   <p>{{lastName}}</p>
+   <p>{{fullName}}</p>
+</div>    
+
+<script src="vue.js"></script>
+<script>
+/*
+    Vue包含一个数据变化的检测
+*/
+let vm = new Vue({
+    el:"#app",
+    data:{
+        a: 1,
+        firstName:"小",
+        lastName:"马",
+        fullName:"小马~"
+    },
+    watch:{//监听数据，当数据有变化的时候触发
+        a:function(val, oldVal){
+            console.log('new: ',val,' old:', oldVal)
+        }
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>

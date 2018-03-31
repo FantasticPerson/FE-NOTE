@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="app">
+   {{msg}}
+</div>    
+
+<script src="vue.js"></script>
+<script>
+new Vue({
+    el:"#app",
+    data:{
+        msg:"Gello"
+    },
+    //实例创建完成后被立即调用，注意和渲染是两回事
+    created:function(){
+        var vm = this;
+        setTimeout(function(){
+            console.log("延迟下");
+            vm.msg = "Hello";
+        },2000);
+        console.log(document.getElementById("app").innerHTML);
+        console.log("created");
+    },
+    //创建之前调用
+    beforeCreate:function(){
+        debugger
+        console.log("before");
+    },
+    beforeMount:function(){
+        console.log("beforeMount");
+    },
+    
+    mounted:function(){
+        console.log("mounted");
+    },
+    //当data中的对象在渲染之后修改，则调用
+    beforeUpdate:function(){
+        console.log("beforeUpdate");
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>
