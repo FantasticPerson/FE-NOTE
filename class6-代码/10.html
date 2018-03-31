@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .fade-enter-active,.fade-leave-active{
+        transition: all 2s;
+    }
+    .fade-enter,.fade-leave-to{
+        opacity: 0;
+        transform:translateY(100px);
+    }
+    </style>
+</head>
+<body>
+    
+<div id="app">
+    <button @click="show = !show">点击按钮</button>
+    <!--
+        name="fade"表示渐变
+        他虽然我们说是表示渐变，实际上还是由咱们自己的样式控制
+    
+        只是增加然后移除了class
+    -->
+    <transition name="fade">
+        <p v-if="show">Hello World~!</p>
+    </transition>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+new Vue({
+    el:"#app",
+    data:{
+        show:true,
+    }
+})
+
+</script>
+    
+
+
+
+</body>
+</html>

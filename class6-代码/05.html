@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+</head>
+<body>
+    
+<div id="app">
+    <p>父级：{{str}}</p>
+    <child-com :msg="str"></child-com>
+    <child-com :msg="str"></child-com>
+</div>
+
+<template id="child">
+    <div>
+        <p>我是子组件对象</p>
+        <input type="button" value="按钮" @click="change()"/>
+        <strong>{{msg}}</strong>
+    </div>
+</template>
+
+<script src="js/vue.js"></script>
+<script>
+/*
+    组件：值的传递
+*/
+new Vue({
+    el:"#app",
+    data:{
+        str:"我是父组件对象"
+    },
+    components:{
+        "child-com":{
+            template:"#child",
+            props:['msg'],
+            methods:{
+                change(){
+                    this.msg = "子对象里面的内容被改变了"
+                }
+            }
+        }
+    }
+})
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

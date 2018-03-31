@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="num += 1">点击{{counter}}</button>
+        <my-counter heading="like" color="green"></my-counter>
+        <my-counter heading="Love" color="red"></my-counter>
+    </div>
+
+    <template id="counter-template">
+        <div>
+            <p>{{heading}}=>{{color}}</p>
+            <button @click="counter += 1">Btn({{counter}})</button>
+        </div>
+    </template>
+
+    <script src="js/vue.js"></script>
+    <script>
+        //两个参数：1、组件名字，2、组件对象
+
+        new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            components: {
+                "my-counter": {
+                    template: '#counter-template',
+                    props:['heading','color'],//props：是用于传递数据的一个方式
+                    data:function(){
+                        return {counter:0}
+                    }
+                }
+            }
+        })
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
