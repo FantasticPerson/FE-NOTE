@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hash</title>
+</head>
+<body>
+    
+
+        <ul class="cs">
+            <li class="li">
+                <a href="#/" class="button button-primary">首页</a>
+            </li>
+            <li class="li">
+                <a href="#/nav" class="button button-highlight">菜单</a>
+            </li>
+            <li class="li">
+                <a href="#/subpage" class="button button-royal">子页</a>
+            </li>
+        </ul>
+
+        <div id="app" style="border:2px solid #f00;height:30px;">
+                Hello
+
+        </div>
+
+<script>
+
+/*
+    var obj = {
+        abcd:function(){
+
+        }
+    }
+    obj.abcd()
+*/
+function Router(){
+    //有个名字，用做一件事情
+    this.routes = [];
+    //
+    this.currentUrl = "";
+    this.init();//先让他初始化监听事件，然后才调用路由
+}
+
+Router.prototype = {
+    constructor:Router,
+    router:function(path,callback){
+        this.routes[path] = callback || function(){};
+    },
+    refresh:function(){
+        this.currentUrl = location.hash.slice(1) || '/';
+        this.routes[this.currentUrl]();//通过路由名字去调用相对应的方法
+    },
+    init:function(){//监听页面：加载的时候、监听改变的时候
+        window.addEventListener("load",this.refresh.bind(this),false);
+        window.addEventListener("hashchange",this.refresh.bind(this),false);
+    }
+}
+
+var appObj = document.getElementById("app");
+function changeText(text){
+    appObj.innerHTML = text;
+}
+
+var router = new Router();
+
+router.router("/",function(){
+    changeText("首页");
+});
+router.router("/nav",function(){
+    changeText("菜单");
+});
+router.router("/subpage",function(){
+    changeText("子页");
+});
+
+
+</script>
+
+
+
+</body>
+</html>

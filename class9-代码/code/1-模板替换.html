@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板渲染</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+
+<table width="1000" id="tableData">
+	<tr>
+		<th>工号</th>
+		<th>名字</th>
+		<th>手机号码</th>
+		<th>职位</th>
+		<th>入职时间</th>
+		<th>Email</th>
+	</tr>
+
+</table>
+
+<!--在这里，由于自定义了type，那么里面所有的代码不管是JS还是HTML或者说是注释，都不会运行，因为浏览器不认识这个type:text/template
+
+-->
+<script type="text/template" id="templs">
+
+<tr>
+	<td>{{number}}</td>
+	<td>{{nickname}}</td>
+	<td>{{phone}}</td>
+	<td>{{department}}</td>
+	<td>{{start_date}}</td>
+	<td>{{email}}</td>
+</tr>
+</script>
+
+<!--<script src="vue.js"></script>-->
+
+<script src="jquery-3.0.0.js"></script>
+<script>
+/*
+var xhr = new XMLHttpRequest();//ActiveXObject();
+var list = document.getElementById("list");
+xhr.onreadystatechange = function(){//onreadystatechange不是检测方法，是状态改变后更新的状态
+	if(xhr.status == 200){
+		if(xhr.readyState == 4){//0创建服务，1，打开服务，2发送服务，3，服务器响应，4加载成功
+			var data = JSON.parse(xhr.responseText);
+			var dataHtml = "";
+			for(var i = 0;i < data.data.length;i++){//for循环解释
+				dataHtml += '<div class="list-box"><a href="#" class="list-img"><img src="'+data.data[i].img+'"/></a>'+
+					'<a href="#"><h4 class="title">'+data.data[i].title+'</h4>'+
+					'<p class="desc">'+data.data[i].description+'</p></a>'+
+					'<p><span class="privilege">'+data.data[i].privilege+'</span></p><p class="price-info">'+
+					'<span class="price"><span class="unit">¥</span>'+data.data[i].price+'</span>'+
+					'<span class="worth">价值¥<span class="strikethough">'+data.data[i].worth+'</span></span>'+
+					'</p><p class="other-info">'+data.data[i].grade+'分<span class="sold">已售'+data.data[i].sold+'</span>'+
+					'</p></div>';
+			}
+			list.innerHTML += dataHtml;//性能上得到一定的保障
+		}
+	}
+}
+xhr.open("post","list.json?rand="+new Date(),true);
+xhr.setRequestHeader("Content-Type","application/www-x-form-urlencoded");
+xhr.send(null);
+
+function formatTemplate(data,temp){//data:数据，temp：模板
+	//console.log(data["number"]);
+	return temp.replace(/{{(\w+)}}/g,function(t1,t2){//t1：是获取模板的字段，t2：是替换之后的字段
+		if(!t2){
+			return "";
+		}
+		return data[t2];//得到替换之后的数据
+	});
+
+}
+//Case 1：
+$.ajax({
+	url:"test.json?ran="+ new Date(),
+	type:"get",
+	success:function(data){
+		if(!data.success){
+			return;
+		}
+		var tempHtml = $("#templs").html();
+		var dataHtml = "";
+		$.each(data.list,function(i,o){
+			//formatTemplate(o,tempHtml);
+			dataHtml += formatTemplate(o,tempHtml);
+		});
+		$("#tableData").append(dataHtml);
+
+	}
+});
+
+*/
+function formatTemplate(data,temp,el){//data:数据，temp：模板
+	//console.log(data["number"]);
+	var dataHtml = "";//空的字符串对象
+	$.each(data,function(i,dataDetail){
+			//正则：{{ w（字符） }}
+			dataHtml += temp.replace(/{{(\w+)}}/g,function(t1,t2){//t1：是获取模板的字段，t2：是替换之后的字段
+			if(!t2){
+				return "";
+			}
+			return dataDetail[t2];//得到替换之后的数据
+		});
+	});
+	console.log(dataHtml);
+	$(el).append(dataHtml);//直接输出到模板
+
+}
+
+$.ajax({
+	url:"test.json?ran="+ new Date(),
+	type:"get",
+	success:function(data){ // 
+		if(!data.success){
+			return;
+		}
+		var tempHtml = $("#templs").html();//获取模板HTML
+		formatTemplate(data.list,tempHtml,"#tableData");//1:获取的数据，2：HTML模板，3：需要渲染的位置
+		//$("#tableData").append(dataHtml);
+	}
+});
+
+
+</script>
+
+
+
+
+</body>
+</html>

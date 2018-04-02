@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板渲染</title>
+	<style>
+	#app{
+		position: absolute;
+		width:300px;
+	}
+	</style>
+</head>
+<body>
+<!--
+指令是可以根据数据状态动态改变
+
+-->
+<div id="app" v-show="isShow" v-drag="">
+	<p>{{message}}</p>
+	<input type="text"/>
+</div>
+
+<script src="vue.js"></script>
+<script>
+/*
+new Vue({
+	el:"#app",
+	data:{
+		message:"Hello World",
+		isShow:true
+	},
+	created:function(){//当vueJS执行，第一次德 时候会调用created方法
+		var _self = this;
+		setTimeout(function(){
+			_self.isShow = false;
+		},2000);
+	}
+});
+
+
+Vue.directive("focus",{
+	bind:function(el){//钩子函数，在绑定的时候调用
+		debugger
+	}
+});
+
+
+new Vue({
+	el:"#app",
+	data:{
+		message:"Hello World",
+		isShow:true
+	},
+	created:function(){//当vueJS执行，第一次德 时候会调用created方法
+		var _self = this;
+		setTimeout(function(){
+			//_self.isShow = false;
+		},5000);
+	}
+});
+
+*/
+
+Vue.directive("drag",{
+	bind:function(){
+		console.log("Bind");
+	},
+	inserted:function(el,b,c,d,e,f){
+		//A:element元素，bcd有参数，总共只有四个参数
+		var divEle = el;
+		divEle.onmousedown = function(e){
+			var x = e.clientX - divEle.offsetLeft;
+			var y = e.clientY - divEle.offsetTop;
+
+			document.onmousemove = function(e){
+				divEle.style.left = e.clientX - x + "px";
+				divEle.style.top = e.clientY - y + "px";
+
+			}
+			divEle.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+		console.log("inserted");
+	},
+	update:function(){
+		console.log("Update");
+	}
+});
+
+
+new Vue({
+	el:"#app",
+	data:{
+		message:"Hello World",
+		isShow:true
+	},
+	created:function(){//当vueJS执行，第一次德 时候会调用created方法
+		var _self = this;
+		setTimeout(function(){
+			_self.message = "Hello";
+		},5000);
+	}
+});
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

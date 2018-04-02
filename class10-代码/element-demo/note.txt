@@ -1,0 +1,51 @@
+Bootstrap：同是UI框架
+
+目的：为了提高效率
+原则：和其他框架一样，拿来主义
+
+
+i18n：i18n（internationlization）
+国际化方案：多语言编译
+
+6+6+6+6=24
+
+
+
+Mint-UI和Element-UI都是“饿了么”公司的
+
+保证他的职责唯一性（高内聚，低耦合）
+
+重要的组件：
+layout、Button、Upload、Form、dialog
+
+注意：
+所有组件的属性，都是Vue或者Element-UI的，绝不是HTML标签自带的
+
+AOP：面向切面编程的一部分
+Vue.conponent("router-link")
+
+所有的组件都是通过Vue来注册的
+渲染的代码是Element-UI
+
+优化代码：
+写了一大堆，发现自己优化不动
+
+抽离公共/相同部分？
+抽离出来就是一个组件?
+
+function demo(){
+    common();
+}
+
+function test(){
+    common();
+    var b = 1;
+}
+
+function common(){
+    var a = 0;
+    console.log("Hello");
+}
+
+
+

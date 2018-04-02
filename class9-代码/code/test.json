@@ -1,0 +1,50 @@
+﻿{  
+    "success": true,  
+    "message": "",  
+    "list": [{
+        "number": "0001",  
+        "nickname": "Star",  
+        "phone": "13584739564",  
+        "department": "大前端",  
+        "post": "讲师",
+        "start_date": "2015-10-08",  
+        "email": "star@dongnaoedu.com",  
+        "status": "在职"
+    },{
+        "number": "0031",
+        "nickname": "Think",  
+        "phone": "13188686666",  
+        "department": "大前端",  
+        "post": "讲师",
+        "start_date": "2015-12-08",  
+        "email": "think@dongnaoedu.com",  
+        "status": "在职"
+    },{
+        "number": "0040",  
+        "nickname": "Song",  
+        "phone": "17761589341",  
+        "department": "大前端",  
+        "post": "讲师",
+        "start_date": "2016-01-04",  
+        "email": "song@dongnaoedu.com",  
+        "status": "在职"
+    },{
+        "number": "0061",  
+        "nickname": "曼妮",  
+        "phone": "15562843648",  
+        "department": "大前端",  
+        "post": "助教",
+        "start_date": "2016-03-08",
+        "email": "manni@dongnaoedu.com",  
+        "status": "在职"
+    },{
+        "number": "0130",  
+        "nickname": "阳阳",  
+        "phone": "13185938573",  
+        "department": "大前端",  
+        "post": "前端班主任",
+        "start_date": "2016-05-08",  
+        "email": "yangyang@dongnaoedu.com",  
+        "status": "在职"
+    }]  
+}  

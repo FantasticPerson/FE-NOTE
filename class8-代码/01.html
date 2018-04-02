@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由核心-基础流程</title>
+</head>
+<body>
+    
+<div id="app">
+    <h1>Router 1</h1>
+    <nav>
+        <!--
+            使用router-link组件来导航,在页面会替换为a标签
+            将需要跳转的路由写在to当中
+        -->
+        <router-link to="/home">Home</router-link>
+        <router-link to="/subPage">subPage</router-link>
+    </nav>
+    <router-view></router-view>
+</div>    
+<template id="home">
+    <p>Home page</p>
+</template>
+
+<template id="subPage">
+    <p>subPage</p>
+</template>
+<script src="js/vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+
+let Home = {
+    template:"#home"
+};
+
+let Subpage = {
+    template:"#subPage"
+};
+let routes = [
+    {path:"/home",component:Home},
+    {path:"/subPage",component:Subpage}
+]
+//注意此时在使用vuerouter的时候，已经调用过了install->init(也就是绑定了页面的事件)
+
+let router = new VueRouter({
+    routes:routes
+});
+
+const app = new Vue({router:router}).$mount("#app");
+
+</script>
+
+</body>
+</html>
